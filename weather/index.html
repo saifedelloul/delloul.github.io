@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Weather Dashboard - Real-time weather information">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🌤️ Weather Dashboard</h1>
+            <p class="subtitle">Real-time weather information powered by Open-Meteo</p>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="cityInput" 
+                    placeholder="Enter city name (e.g., Paris, New York)..."
+                    class="search-input"
+                >
+                <button id="searchBtn" class="search-btn">Search</button>
+            </div>
+            <button id="locationBtn" class="location-btn" title="Use my location">📍 Use My Location</button>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error" class="error hidden"></div>
+
+        <!-- Main Weather Card -->
+        <section id="weatherCard" class="weather-card hidden">
+            <div class="weather-header">
+                <div class="location-info">
+                    <h2 id="cityName"></h2>
+                    <p id="lastUpdated" class="last-updated"></p>
+                </div>
+                <button id="refreshBtn" class="refresh-btn" title="Refresh weather">🔄</button>
+            </div>
+
+            <div class="weather-main">
+                <div class="current-temp">
+                    <div class="temp-display">
+                        <span id="temperature" class="temp"></span>
+                        <span class="unit">°C</span>
+                    </div>
+                    <div id="weatherIcon" class="weather-icon"></div>
+                </div>
+                <div class="weather-description">
+                    <p id="description" class="main-description"></p>
+                    <p id="feelsLike" class="feels-like"></p>
+                </div>
+            </div>
+
+            <!-- Weather Details Grid -->
+            <div class="weather-details">
+                <div class="detail-card">
+                    <div class="detail-icon">💧</div>
+                    <div class="detail-content">
+                        <p class="detail-label">Humidity</p>
+                        <p id="humidity" class="detail-value"></p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">💨</div>
+                    <div class="detail-content">
+                        <p class="detail-label">Wind Speed</p>
+                        <p id="windSpeed" class="detail-value"></p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">🌊</div>
+                    <div class="detail-content">
+                        <p class="detail-label">Pressure</p>
+                        <p id="pressure" class="detail-value"></p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">👁️</div>
+                    <div class="detail-content">
+                        <p class="detail-label">Visibility</p>
+                        <p id="visibility" class="detail-value"></p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">⬆️</div>
+                    <div class="detail-content">
+                        <p class="detail-label">UV Index</p>
+                        <p id="uvIndex" class="detail-value"></p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">💧</div>
+                    <div class="detail-content">
+                        <p class="detail-label">Precipitation</p>
+                        <p id="precipitation" class="detail-value"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5-Day Forecast -->
+        <section id="forecastSection" class="forecast-section hidden">
+            <h3>5-Day Forecast</h3>
+            <div id="forecastContainer" class="forecast-container"></div>
+        </section>
+
+        <!-- Welcome Message -->
+        <section id="welcome" class="welcome-section">
+            <div class="welcome-content">
+                <h2>Welcome to Weather Dashboard</h2>
+                <p>Search for a city or use your current location to get real-time weather information.</p>
+                <div class="welcome-features">
+                    <div class="feature">
+                        <span class="feature-icon">🌍</span>
+                        <p>Search any city worldwide</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📍</span>
+                        <p>Use geolocation for instant weather</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📊</span>
+                        <p>Detailed weather metrics & forecast</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🔄</span>
+                        <p>Auto-refresh every 10 minutes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Powered by <a href="https://open-meteo.com" target="_blank">Open-Meteo</a> (Free Weather API)</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
